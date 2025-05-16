@@ -8,6 +8,8 @@ if(! function_exists('band_digital_setup')){
         ]);
         add_theme_support('title-tag');
         add_theme_support('post-thumbnails');
+
+        set_post_thumbnail_size(730, 480, true);
     }
     add_action('after_setup_theme', 'band_digital_setup');
 }
@@ -114,3 +116,15 @@ class bootstrap_4_walker_nav_menu extends Walker_Nav_Menu {
         $output .= apply_filters ( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
 }
+
+function band_digital_widgets_init() {
+    register_sidebar( array(
+        'name'          => esc_html__('Сайдбар блога', 'band-digital'),
+        'id'            => "sidebar-blog",
+        'before_widget' => '<section id="%1$s" class="sidebar-widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h5 class="widget-title mb-3">',
+        'after_title'   => '</h5>'
+    ));
+}
+add_action( 'widgets_init', 'band_digital_widgets_init' );

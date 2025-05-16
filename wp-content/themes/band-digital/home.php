@@ -49,13 +49,30 @@
                             Записей нет.
                         <?php endif; ?>
 
+
+                        <div class="col-lg-12">
+                            <?php the_posts_pagination($args = array(
+                                'prev_text'    => __('<span class="p-3 border">«</span>'),
+                                'next_text'    => __('<span class="p-3 border">»</span>'),
+                                'before_page_number' => '<span class="p-3">',
+                                'after_page_number'  => '</span>',
+                            )); ?>
+                        </div>
+
+
                     </div>
                 </div>
+
+
 
                 <!-- BlOG SIDEBAR -->
                 <div class="col-lg-4">
                     <div class="row">
                         <div class="col-lg-12">
+                            <ul id="sidebar">
+                                <?php if ( ! dynamic_sidebar('sidebar-blog') ) : dynamic_sidebar('sidebar-blog')?>
+                                <?php endif; ?>
+                            </ul>
                             <div class="sidebar-widget search">
                                 <div class="form-group">
                                     <input type="text" placeholder="search" class="form-control">
