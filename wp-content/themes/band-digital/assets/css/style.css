@@ -1406,7 +1406,7 @@ BLOG PAGE
     padding-left: 20px;
 }
 
-.category ul li{
+.widget_categories ul li{
     margin-bottom: 10px;
     text-transform: capitalize;
     position: relative;
@@ -1415,7 +1415,7 @@ BLOG PAGE
     padding-bottom: 10px;
 }
 
-.category ul li:before{
+.widget_categories ul li:before{
     position: absolute;
     content:"\f105";
     left: 0px;
@@ -1424,12 +1424,12 @@ BLOG PAGE
     color: #635CDB;
 }
 
-.tag a{
+.widget_tag_cloud a{
     text-transform: capitalize;
     padding: 5px 8px;
     border: 1px solid#eee;
     margin-bottom: 5px;
-    font-size: 14px;
+    font-size: 14px !important;
     display: inline-block;
 }
 
