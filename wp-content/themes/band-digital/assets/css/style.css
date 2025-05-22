@@ -1477,3 +1477,17 @@ BLOG SINGLE
     width: 80px;
     height: 80px;
 }
+
+
+.form-group{
+    position: relative;
+}
+
+.searchform-button{
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
