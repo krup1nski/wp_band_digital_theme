@@ -7,8 +7,18 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
                     <div class="banner-content content-padding">
-                        <h1 class="banner-title">Latest news</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde, perferendis?</p>
+                        <h1 class="banner-title">
+                            <?php
+                                if (is_category()) {
+                                    echo 'Category: ' . get_queried_object()->name;
+                                }elseif(is_tag()){
+                                    echo 'Tag: ' . get_queried_object()->name;
+                                }elseif(is_author()){
+                                    echo 'Author: ' . get_the_author_meta('display_name');
+                                }
+                            ?>
+                        </h1>
+
                     </div>
                 </div>
             </div>
@@ -27,7 +37,7 @@
                             <div class="col-lg-6">
                                 <div class="blog-post">
                                     <?php the_post_thumbnail( 'thumbnail', array(
-                                            'class' => "img-fluid",
+                                        'class' => "img-fluid",
                                     )); ?>
                                     <div class="mt-4 mb-3 d-flex">
                                         <div class="post-author mr-3">
@@ -64,7 +74,7 @@
                 </div>
 
 
-            <?php get_sidebar() ?>
+                <?php get_sidebar() ?>
 
             </div>
         </div>
