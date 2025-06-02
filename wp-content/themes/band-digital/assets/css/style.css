@@ -1491,3 +1491,9 @@ BLOG SINGLE
     background-color: transparent;
     cursor: pointer;
 }
+
+.img-services{
+    width: 200px;
+    border-radius: 50%;
+    height: 200px;
+}

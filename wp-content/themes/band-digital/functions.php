@@ -755,3 +755,130 @@ class Bootstrap_Walker_Comment extends Walker {
         <?php
     }
 }
+
+
+// регистрируем новый тип записи - Услуги и тд
+add_action( 'init', 'register_post_types' );
+
+function register_post_types(){
+
+    register_post_type( 'service', [
+        'label'  => null,
+        'labels' => [
+            'name'               => __('Услуги'), // основное название для типа записи
+            'singular_name'      => __('Услуга'), // название для одной записи этого типа
+            'add_new'            => __('Добавить новую'), // для добавления новой записи
+            'add_new_item'       => __('Добавление новую услугу'), // заголовка у вновь создаваемой записи в админ-панели.
+            'edit_item'          => __('Редактирование услуги'), // для редактирования типа записи
+            'new_item'           => __('Новоя услуга'), // текст новой записи
+            'view_item'          => __('Смотреть услугу'), // для просмотра записи этого типа.
+            'search_items'       => __('Искать услугу'), // для поиска по этим типам записи
+            'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+            'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+            'parent_item_colon'  => '', // для родителей (у древовидных типов)
+            'menu_name'          => 'Услуги', // название меню
+        ],
+        'description'            => '',
+        'public'                 => true,
+         'publicly_queryable'  => true, // зависит от public
+        // 'exclude_from_search' => null, // зависит от public
+         'show_ui'             => true, // зависит от public
+        // 'show_in_nav_menus'   => null, // зависит от public
+        'show_in_menu'           => null, // показывать ли в меню админки
+        // 'show_in_admin_bar'   => null, // зависит от show_in_menu
+        'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+        'rest_base'           => null, // $post_type. C WP 4.7
+        'menu_position'       => null,
+        'menu_icon'           => 'dashicons-list-view',
+        'capability_type'   => 'post',
+        //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
+        //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
+        'hierarchical'        => false,
+        'supports'            => [ 'title', 'editor', 'author', 'thumbnail','excerpt' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'taxonomies'          => [],
+        'has_archive'         => true,
+        'rewrite'             => true,
+        'query_var'           => true,
+    ] );
+
+    register_post_type( 'partners', [
+        'label'  => null,
+        'labels' => [
+            'name'               => __('Партнеры'), // основное название для типа записи
+            'singular_name'      => __('Партнер'), // название для одной записи этого типа
+            'add_new'            => __('Добавить партнера'), // для добавления новой записи
+            'add_new_item'       => __('Добавление нового партнера'), // заголовка у вновь создаваемой записи в админ-панели.
+            'edit_item'          => __('Редактирование партнера'), // для редактирования типа записи
+            'new_item'           => __('Новый партнер'), // текст новой записи
+            'view_item'          => __('Смотреть партнера'), // для просмотра записи этого типа.
+            'search_items'       => __('Искать партнера'), // для поиска по этим типам записи
+            'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+            'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+            'parent_item_colon'  => '', // для родителей (у древовидных типов)
+            'menu_name'          => 'Партнеры', // название меню
+        ],
+        'description'            => '',
+        'public'                 => true,
+        'publicly_queryable'  => true, // зависит от public
+        // 'exclude_from_search' => null, // зависит от public
+        'show_ui'             => true, // зависит от public
+        // 'show_in_nav_menus'   => null, // зависит от public
+        'show_in_menu'           => null, // показывать ли в меню админки
+        // 'show_in_admin_bar'   => null, // зависит от show_in_menu
+        'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+        'rest_base'           => null, // $post_type. C WP 4.7
+        'menu_position'       => null,
+        'menu_icon'           => 'dashicons-buddicons-buddypress-logo',
+        'capability_type'   => 'post',
+        //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
+        //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
+        'hierarchical'        => false,
+        'supports'            => [ 'title', 'editor', 'author', 'thumbnail','excerpt' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'taxonomies'          => [],
+        'has_archive'         => true,
+        'rewrite'             => true,
+        'query_var'           => true,
+    ] );
+
+    register_post_type( 'tariffs', [
+        'label'  => null,
+        'labels' => [
+            'name'               => __('Тарифы'), // основное название для типа записи
+            'singular_name'      => __('Тариф'), // название для одной записи этого типа
+            'add_new'            => __('Добавить тариф'), // для добавления новой записи
+            'add_new_item'       => __('Добавление нового тарифа'), // заголовка у вновь создаваемой записи в админ-панели.
+            'edit_item'          => __('Редактирование тарифа'), // для редактирования типа записи
+            'new_item'           => __('Новый тариф'), // текст новой записи
+            'view_item'          => __('Смотреть тариф'), // для просмотра записи этого типа.
+            'search_items'       => __('Искать тариф'), // для поиска по этим типам записи
+            'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+            'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+            'parent_item_colon'  => '', // для родителей (у древовидных типов)
+            'menu_name'          => 'Тарифы', // название меню
+        ],
+        'description'            => '',
+        'public'                 => true,
+        'publicly_queryable'  => true, // зависит от public
+        // 'exclude_from_search' => null, // зависит от public
+        'show_ui'             => true, // зависит от public
+        // 'show_in_nav_menus'   => null, // зависит от public
+        'show_in_menu'           => null, // показывать ли в меню админки
+        // 'show_in_admin_bar'   => null, // зависит от show_in_menu
+        'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+        'rest_base'           => null, // $post_type. C WP 4.7
+        'menu_position'       => null,
+        'menu_icon'           => 'dashicons-money-alt',
+        'capability_type'   => 'post',
+        //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
+        //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
+        'hierarchical'        => false,
+        'supports'            => [ 'title', 'editor', 'author', 'thumbnail','excerpt' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'taxonomies'          => [],
+        'has_archive'         => true,
+        'rewrite'             => true,
+        'query_var'           => true,
+    ] );
+
+}
+
+

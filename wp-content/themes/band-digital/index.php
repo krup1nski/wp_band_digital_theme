@@ -128,96 +128,12 @@
 </section>
 <!--  SERVICE AREA END  -->
 
-<!--  SERVICE PARTNER START  -->
-<section id="service-head" class=" bg-feature">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-sm-12 m-auto">
-                <div class="section-heading text-white">
-                    <h4 class="section-title">Full stack digital marketing solution</h4>
-                    <p>We’re full service which means we’ve got you covered on design & content right through to digital. You’ll form a lasting relationship with us.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--  SERVICE PARTNER END  -->
+
 
 <!--  SERVICE AREA START  -->
-<section id="service">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="service-box">
-                    <div class="service-img-icon">
-                        <img src="assets/img/icon/007-digital-marketing-3.png" alt="service-icon" class="img-fluid">
-                    </div>
-                    <div class="service-inner">
-                        <h4>Video Marketing</h4>
-                        <p>Reach a huge area of users and get a publicty of your product and service ,<span>video marketing</span> solution.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="service-box ">
-                    <div class="service-img-icon">
-                        <img src="assets/img/icon/008-digital-marketing-2.png" alt="service-icon" class="img-fluid">
-                    </div>
-                    <div class="service-inner">
-                        <h4>Email Marketing</h4>
-                        <p>Email Marketing is a great solution to reach a <span>high range of customers</span> eagrerly waiting to get a service.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="service-box">
-                    <div class="service-img-icon">
-                        <img src="assets/img/icon/003-task.png" alt="service-icon" class="img-fluid">
-                    </div>
-                    <div class="service-inner">
-                        <h4>SEO optimization</h4>
-                        <p>we provide wide range of<span> seo service</span> to make your site at top to reach your target customers provided.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="service-box">
-                    <div class="service-img-icon">
-                        <img src="assets/img/icon/010-digital-marketing.png" alt="service-icon" class="img-fluid">
-                    </div>
-                    <div class="service-inner">
-                        <h4>Custom Website</h4>
-                        <p>We  provide <span>custom website</span> for any small and large company web based service in large compact package.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="service-box">
-                    <div class="service-img-icon">
-                        <img src="assets/img/icon/006-analytics.png" alt="service-icon" class="img-fluid">
-                    </div>
-                    <div class="service-inner">
-                        <h4>Content Growth</h4>
-                        <p>Content is king,Having a blog site and want to <span>build content</span> make a platform of earning too we assist you.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="service-box">
-                    <div class="service-img-icon">
-                        <img src="assets/img/icon/004-hiring.png" alt="service-icon" class="img-fluid">
-                    </div>
-                    <div class="service-inner">
-                        <h4>Link Building </h4>
-                        <p>Want to grow your <span>potential visitor</span> your site to make it more effective and succesful business .</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<?php echo get_template_part('template-parts/content', 'service', ['class' => 'bg-feature', 'custom_title' => 'Наши услуги'])?>
 <!--  SERVICE AREA END  -->
+
 
 <!-- PRICE AREA START  -->
 <section id="pricing" class="section-padding bg-main">

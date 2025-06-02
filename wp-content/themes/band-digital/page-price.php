@@ -28,74 +28,43 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-sm-6">
-                <div class="pricing-block ">
-                    <div class="price-header">
-                        <i class="flaticon-start"></i>
-                        <h4 class="price"><small>$</small>26</h4>
-                        <h5>Monthly pack</h5>
+
+            <?php
+            global $post;
+
+            $query = new WP_Query( [
+                'posts_per_page' => 3,
+                'post_type'        => 'tariffs',
+                'order'         => 'asc',
+            ] );
+
+            if ( $query->have_posts() ) {
+                while ( $query->have_posts() ) {
+                    $query->the_post();
+                    ?>
+
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="pricing-block ">
+                            <div class="price-header">
+                                <i class="flaticon-start"></i>
+                                <h4 class="price"><small>$</small><?php the_title()?></h4>
+                                <h5><?php the_excerpt(); ?></h5>
+                            </div>
+                            <div class="line"></div>
+                                <?php the_content(); ?>
+                            <a href="#" class="btn btn-hero btn-circled">select plan</a>
+                        </div>
                     </div>
-                    <div class="line"></div>
-                    <ul>
-                        <li>5 GB Bandwidth</li>
-                        <li>Highest Speed</li>
-                        <li>1 GB Storage</li>
-                        <li>Unlimited Website</li>
-                        <li>Unlimited Users</li>
-                        <li>Data Security and Backups</li>
-                        <li>24x7 Great Support</li>
-                        <li>Monthly Reports and Analytics</li>
-                    </ul>
 
-                    <a href="#" class="btn btn-hero btn-circled">select plan</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="pricing-block ">
-                    <div class="price-header">
-                        <i class="flaticon-value"></i>
+                    <?php
+                }
+            } else {
+                // Постов не найдено
+            }
 
-                        <h4 class="price"><small>$</small>46</h4>
-                        <h5>Monthly pack</h5>
-                    </div>
-                    <div class="line"></div>
-                    <ul>
-                        <li>5 GB Bandwidth</li>
-                        <li>Highest Speed</li>
-                        <li>1 GB Storage</li>
-                        <li>Unlimited Website</li>
-                        <li>Unlimited Users</li>
-                        <li>Data Security and Backups</li>
-                        <li>24x7 Great Support</li>
-                        <li>Monthly Reports and Analytics</li>
-                    </ul>
+            wp_reset_postdata(); // Сбрасываем $post
+            ?>
 
-                    <a href="#" class="btn btn-hero btn-circled">select plan</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="pricing-block">
-                    <div class="price-header">
-                        <i class="flaticon-idea"></i>
-
-                        <h4 class="price"><small>$</small>76</h4>
-                        <h5>Monthly pack</h5>
-                    </div>
-                    <div class="line"></div>
-                    <ul>
-                        <li>5 GB Bandwidth</li>
-                        <li>Highest Speed</li>
-                        <li>1 GB Storage</li>
-                        <li>Unlimited Website</li>
-                        <li>Unlimited Users</li>
-                        <li>Data Security and Backups</li>
-                        <li>24x7 Great Support</li>
-                        <li>Monthly Reports and Analytics</li>
-                    </ul>
-
-                    <a href="#" class="btn btn-hero btn-circled">select plan</a>
-                </div>
-            </div>
         </div>
     </div>
 </section>
