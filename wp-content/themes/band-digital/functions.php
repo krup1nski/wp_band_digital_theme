@@ -921,3 +921,48 @@ function register_post_types(){
 }
 
 
+add_action( 'wp_ajax_my_action', 'my_action_callback' );
+add_action( 'wp_ajax_nopriv_my_action', 'my_action_callback' );
+
+function my_action_callback(){
+    // обрабатываем AJAX из стр контакты
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $mail_to = get_option( 'admin_email' );
+
+        $phone = trim( $_POST['phone'] );
+        $message = trim( $_POST['message'] );
+        $name = trim( $_POST['name'] );
+        $email = trim( $_POST['email'] );
+
+        if(empty($name) || empty($email) || empty($phone) || empty($message)){
+            http_response_code(400);
+            echo "Пожалуйста заполните все обязательные поля.";
+            exit;
+        }
+
+        $subject = 'Заявка и wordpress';
+        $content = "Name: $name\n";
+        $content .= "Email: $email\n\n";
+        $content .= "Message: \n$message\n";
+
+        $headers = 'From: no-reply@band-digital.ru';
+
+        $success = mail( $mail_to, $subject, $content, $headers );
+        if ($success){
+            http_response_code(200);
+            echo 'ок';
+        }else{
+            http_response_code(500);
+            echo 'ne ок';
+        }
+    }else{
+        http_response_code(403);
+        echo 'toje ne ок';
+    }
+
+
+    wp_die();
+}
+
+

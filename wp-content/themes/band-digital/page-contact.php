@@ -28,34 +28,7 @@
         </div>
         <div class="row">
             <div class="col-lg-7 col-sm-12">
-                <form class="contact__form" method="post" action="mail.php">
-                    <!-- form message -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="alert alert-success contact__msg" style="display: none" role="alert">
-                                Your message was sent successfully.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end message -->
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <input name="name" type="text" class="form-control" placeholder="Name" required>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <input name="email" type="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <input name="subject" type="text" class="form-control" placeholder="Subject" required>
-                        </div>
-                        <div class="col-12 form-group">
-                            <textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
-                        </div>
-                        <div class="col-12 mt-4">
-                            <input name="submit" type="submit" class=" btn btn-hero btn-circled" value="Send Message">
-                        </div>
-                    </div>
-                </form>
+                <?php echo do_shortcode('[contact-form-7 id="70afd52" title="Контактная форма"]') ?>
             </div>
 
             <div class="col-lg-5 pl-4 mt-4 mt-lg-0">
