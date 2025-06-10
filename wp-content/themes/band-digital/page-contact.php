@@ -15,6 +15,7 @@
 </div>
 <!--MAIN HEADER AREA END -->
 
+
 <!--  Contact START  -->
 <section class="section-padding">
     <div class="container">
@@ -31,15 +32,41 @@
                 <?php echo do_shortcode('[contact-form-7 id="70afd52" title="Контактная форма"]') ?>
             </div>
 
+
+
             <div class="col-lg-5 pl-4 mt-4 mt-lg-0">
+
+                <p class="mb-3"><?php
+                    if (function_exists('get_field')) {
+                        $value = get_field('address', 10);
+                        echo $value ?: 'Пустое значение';
+                    } else {
+                        echo 'Плагин ACF не активирован';
+                    }
+                    ?></p>
                 <h4>Office Address</h4>
-                <p class="mb-3">John lake park 9/12 street park London</p>
+                <p class="mb-3">
+                    <?php
+                    $address = get_field('address', 10);
+                    echo $address ? esc_html($address) : 'Адрес не указан';
+                    ?>
+                </p>
+
                 <h4>Contact Info</h4>
-                <p class="mb-3">+23 456 7920</p>
+                <p class="mb-3">
+                    <?php
+                    $current_address = get_field('address', get_the_ID());
+                    echo $current_address ? esc_html($current_address) : 'Адрес не указан';
+                    ?>
+                </p>
+
                 <h4>Contact Mail</h4>
-                <p class="mb-3">support@email.com</p>
-                <h4>Website</h4>
-                <p>www.companyname.com</p>
+                <p class="mb-3">
+                    <?php
+                    $email = get_field('email', 10);
+                    echo $email ? antispambot(esc_html($email)) : 'Email не указан';
+                    ?>
+                </p>
             </div>
         </div>
     </div>
